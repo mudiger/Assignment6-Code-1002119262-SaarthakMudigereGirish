@@ -1,11 +1,7 @@
-from flask import Flask, render_template, request, session, redirect, url_for
-from flask_socketio import join_room, leave_room, send, SocketIO
-import random
-from string import ascii_uppercase
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "hjhjsdahhds"
-socketio = SocketIO(app)
+
 
 rooms = {}
 
@@ -61,6 +57,8 @@ class Game:
 
     def single_scores(self):
         return max(self.cumulative_scores.values())
+
+
 game = Game()
 
 
